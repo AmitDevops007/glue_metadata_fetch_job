@@ -58,7 +58,7 @@ if job_list:
             frame=job_dynamic_df,
             connection_type="s3",
             connection_options={"path": "s3://glue-job-metadata-file/job_details/"},
-            format="json"
+            format="parquet"
         )
         print("✅ Job Details Successfully Written to S3")
 
@@ -79,7 +79,7 @@ for job in job_list:
                 frame=run_dynamic_df,
                 connection_type="s3",
                 connection_options={"path": f"s3://glue-job-metadata-file/job_run_details/{job_name}/"},
-                format="json"
+                format="parquet"
             )
             print(f"✅ Job Run Details for {job_name} Successfully Written to S3")
 
